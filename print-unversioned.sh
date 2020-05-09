@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eu
+set -euo pipefail
 
 # checks for git, subversion, or mercurial directories
 dir_is_versioned() {
@@ -54,6 +54,6 @@ print_unversioned_descendants() {
   return 0
 }
 
-[ -n "$1" ] && ROOT="$1" || ROOT="."
+[ -n "${1:-}" ] && ROOT="$1" || ROOT="."
 print_unversioned_descendants "$ROOT"
 
